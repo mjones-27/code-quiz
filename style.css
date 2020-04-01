@@ -10,3 +10,7 @@ body {
     font-size: 100px;
     color: green;
   }
+
+  .hide {
+    display: none;
+  }

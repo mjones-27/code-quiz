@@ -34,7 +34,8 @@
 // PHASE 1
 
 // PHASE 2
-
+// TODO: display 5 sets of 4 questions
+// TODO: start timer
 
 
 // PHASE 3
@@ -43,9 +44,21 @@
 
 // var targetDiv = document.getElementById("high");
 
+var timeLeft = document.getElementById("timer")
+
+function quizTimer() {
+    var secLeft = 75;
+
+    var timerInterval = setInterval(function(){
+        secLeft--;
+        timeLeft.textContent = "time: " + secLeft;
+    }, 1000)                            // * 1000 because they are in ms
+}
+
 $(".start-button").on("click", function() {
     console.log("button pressed");
     // var targetDiv = document.getElementById("cardTitle");
     // targetDiv.setAttribute("class", "fancy");
+    quizTimer();
   });
 
