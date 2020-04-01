@@ -44,21 +44,23 @@
 
 // var targetDiv = document.getElementById("high");
 
-var timeLeft = document.getElementById("timer")
+var starCard = document.getElementById("startCard")
+var timer = document.getElementById("timer")
 
 function quizTimer() {
     var secLeft = 75;
 
     var timerInterval = setInterval(function(){
         secLeft--;
-        timeLeft.textContent = "time: " + secLeft;
+        timer.textContent = "time: " + secLeft;
     }, 1000)                            // * 1000 because they are in ms
 }
 
 $(".start-button").on("click", function() {
-    console.log("button pressed");
-    // var targetDiv = document.getElementById("cardTitle");
-    // targetDiv.setAttribute("class", "fancy");
+    // console.log("button pressed");
     quizTimer();
+    startCard.classList.add("hide");
+    quizCard1.classList.remove("hide");
+
   });
 
