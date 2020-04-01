@@ -1,0 +1,12 @@
+body {
+    background: teal;
+}
+
+.card-title {
+    font-weight: bolder;
+}
+
+.fancy {
+    font-size: 100px;
+    color: green;
+  }
