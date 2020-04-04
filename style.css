@@ -1,9 +1,13 @@
 body {
-    background: teal;
+    background: white;
 }
 
 .card-title {
     font-weight: bolder;
+}
+
+.card-footer {
+    background: white;
 }
 
 .fancy {

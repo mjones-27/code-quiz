@@ -10,6 +10,8 @@ TODO: WHEN all questions are answered or the timer reaches 0
 TODO: THEN the game is over
 TODO: WHEN the game is over
 TODO: THEN I can save my initials and score
+
+TODO: bug with timer when restarting game
  -->
 
 <!DOCTYPE html>
@@ -37,6 +39,7 @@ TODO: THEN I can save my initials and score
         <div class="row">
             <div class="col-3"></div>
             <div class="col-6">
+                <!-- START GAME CYCLE -->
               <div class="card text-center" id="startCard">
                 <div class="card-body">
                   <h5 class="card-title" id="cardTitle">Coding Quiz Challenge</h5>
@@ -44,73 +47,66 @@ TODO: THEN I can save my initials and score
                   <a href="#" class="btn btn-primary start-button">Start Quiz</a>
                 </div>
               </div>
-
-            <!-- TODO: merge all quizCards to one -->
               <div class="card hide" id="quizCard1">
                 <div class="card-body">
                   <h5 class="card-title" id="cardTitle">Commonly used data types DO NOT include:</h5>
                   <!-- TODO: properly format these later -->
-                  <button class="btn btn-primary quiz-button set1">1. strings</button>
-                  <button class="btn btn-primary quiz-button set1">2. boolean</button>
-                  <button class="btn btn-primary quiz-button set1">3. alerts</button>
-                  <button class="btn btn-primary quiz-button set1">4. numbers</button>
+                  <button class="btn btn-primary quiz-button set1" id="q1">1. strings</button>
+                  <button class="btn btn-primary quiz-button set1" id="q2">2. boolean</button>
+                  <button class="btn btn-primary quiz-button set1True" id="q3">3. alerts</button>
+                  <button class="btn btn-primary quiz-button set1" id="q4">4. numbers</button>
+                  
                 </div>
-                <!-- <div class="card-footer text-muted">
-                  2 days ago
-                </div> -->
-              </div>
 
+              </div>
               <div class="card hide" id="quizCard2">
                 <div class="card-body">
                   <h5 class="card-title" id="cardTitle">The condition in an if/else statement is enclosed within ________.</h5>
                   <!-- properly format these later -->
                   <button class="btn btn-primary quiz-button set2">1. quotes</button>
                   <button class="btn btn-primary quiz-button set2">2. curly braces</button>
-                  <button class="btn btn-primary quiz-button set2">3. parens</button>
+                  <button class="btn btn-primary quiz-button set2True">3. parens</button>
                   <button class="btn btn-primary quiz-button set2">4. hard brackets</button>
                 </div>
-                <!-- <div class="card-footer text-muted">
-                  2 days ago
-                </div> -->
+                <div class="card-footer text-muted hide" id="goodResult1">Correct!</div>
+                <div class="card-footer text-muted hide" id="badResult1">Wrong.</div>
+                
               </div>
-
               <div class="card hide" id="quizCard3">
                 <div class="card-body">
                   <h5 class="card-title" id="cardTitle">Arrays in JavaScript can be used to store ________.</h5>
                   <button class="btn btn-primary quiz-button set3">1. numbers & strings</button>
                   <button class="btn btn-primary quiz-button set3">2. other arrays</button>
                   <button class="btn btn-primary quiz-button set3">3. boolean values</button>
-                  <button class="btn btn-primary quiz-button set3">4. all the above</button>
+                  <button class="btn btn-primary quiz-button set3True">4. all the above</button>
                 </div>
+                <div class="card-footer text-muted hide" id="goodResult2">Correct!</div>
+                <div class="card-footer text-muted hide" id="badResult2">Wrong.</div>
                 <!-- <div class="card-footer text-muted">
                   2 days ago
                 </div> -->
               </div>
-
               <div class="card hide" id="quizCard4">
                 <div class="card-body">
                   <h5 class="card-title" id="cardTitle">String values must be enclosed within ________ when being assigned to variables.</h5>
                   <button class="btn btn-primary quiz-button set4">1. commas</button>
                   <button class="btn btn-primary quiz-button set4">2. curly braces</button>
-                  <button class="btn btn-primary quiz-button set4">3. quotes</button>
+                  <button class="btn btn-primary quiz-button set4True">3. quotes</button>
                   <button class="btn btn-primary quiz-button set4">4. parens</button>
                 </div>
-                <!-- <div class="card-footer text-muted">
-                  2 days ago
-                </div> -->
+                <div class="card-footer text-muted hide" id="goodResult3">Correct!</div>
+                <div class="card-footer text-muted hide" id="badResult3">Wrong.</div>
               </div>
-
               <div class="card hide" id="quizCard5">
                 <div class="card-body">
                   <h5 class="card-title" id="cardTitle">A very useful tool used during development and debugging for printing content to the debugger is:</h5>
                   <button class="btn btn-primary quiz-button set5">1. JavaScript</button>
                   <button class="btn btn-primary quiz-button set5">2. terminal/bash</button>
                   <button class="btn btn-primary quiz-button set5">3. for loops</button>
-                  <button class="btn btn-primary quiz-button set5">4. console.log</button>
+                  <button class="btn btn-primary quiz-button set5True">4. console.log</button>
                 </div>
-                <!-- <div class="card-footer text-muted">
-                  2 days ago
-                </div> -->
+                <div class="card-footer text-muted hide" id="goodResult4">Correct!</div>
+                <div class="card-footer text-muted hide" id="badResult4">Wrong.</div>
               </div>
 
               <!-- can every new quiz question just populate the data on the card, instead of having unique cards? -->
@@ -121,8 +117,9 @@ TODO: THEN I can save my initials and score
                   <p class="card-text">Your final score was </p>
                   <a href="#" class="btn btn-primary submit-button">Submit</a>
                 </div>
+                <div class="card-footer text-muted hide" id="goodResult5">Correct!</div>
+                <div class="card-footer text-muted hide" id="badResult5">Wrong.</div>
               </div>
-
               <div class="card hide" id="highCard">
                 <div class="card-body">
                   <h5 class="card-title" id="cardTitle">Highscores</h5>
@@ -131,7 +128,6 @@ TODO: THEN I can save my initials and score
                   <a href="#" class="btn btn-primary clear-button">Clear Highscores</a>
                 </div>
               </div>
-
             </div>
         </div>
         <div class="col-3"></div>
