@@ -1,11 +1,12 @@
 var starCard = document.getElementById("startCard")
 var timer = document.getElementById("timer")
 var previousRes = "Correct!"
+var secLeft = 75;
 
 const quizArr = ["1. strings", "2. boolean", "3. alerts", "4. numbers"];
 
 function quizTimer() {
-    var secLeft = 75;
+    
     var timerInterval = setInterval(function(){
         secLeft--;
         timer.textContent = "time: " + secLeft;
@@ -85,6 +86,13 @@ $(".start-button").on("click", function(){
     quizCard1.classList.add("hide");
     quizCard2.classList.remove("hide");
     badResult1.classList.remove("hide");
+
+    console.log(timer.textContent);
+    console.log(secLeft);
+    secLeft-=10;
+    console.log(secLeft);
+    timer.textContent = "time: " + secLeft;
+
     // goodResult1.classList.remove("hide");
 
 
